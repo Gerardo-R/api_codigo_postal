@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title></title>
+</head>
+
+<body>
+   <div id="monito" name="monito"><img src="1474.gif"></div>
+   <form>
+      <label>País</label>
+      <select name="pais" id="pais" required="required">
+         <option value="DE">Alemania</option>
+         <option value="AD">Andorra</option>
+         <option value="DZ">Argelia</option>
+         <option value="AR">Argentina</option>
+         <option value="AU">Australia</option>
+         <option value="AT">Austria</option>
+         <option value="AZ">Azerbaiyán</option>
+         <option value="GG">Bailía de Guernsey</option>
+         <option value="BD">Bangladesh</option>
+         <option value="BE">Bélgica</option>
+         <option value="BM">Bermudas</option>
+         <option value="BY">Bielorrusia</option>
+         <option value="BR">Brasil</option>
+         <option value="BG">Bulgaria</option>
+         <option value="CA">Canadá</option>
+         <option value="CL">Chile</option>
+         <option value="CY">Chipre</option>
+         <option value="VA">Ciudad del Vaticano</option>
+         <option value="CO">Colombia</option>
+         <option value="KR">Corea del Sur</option>
+         <option value="CR">Costa Rica</option>
+         <option value="HR">Croacia</option>
+         <option value="DK">Dinamarca</option>
+         <option value="SK">Eslovaquia</option>
+         <option value="SI">Eslovenia</option>
+         <option value="ES">España</option>
+         <option value="FM">Estados Federados de Micronesia</option>
+         <option value="US">Estados Unidos</option>
+         <option value="EE">Estonia</option>
+         <option value="PH">Filipinas</option>
+         <option value="FI">Finlandia</option>
+         <option value="FR">Francia</option>
+         <option value="GL">Groenlandia</option>
+         <option value="GP">Guadalupe</option>
+         <option value="GU">Guam</option>
+         <option value="GT">Guatemala</option>
+         <option value="GF">Guyana Francesa</option>
+         <option value="HT">Haití</option>
+         <option value="HU">Hungría</option>
+         <option value="IN">India</option>
+         <option value="IE">Irlanda</option>
+         <option value="IM">Isla de Man</option>
+         <option value="IS">Islandia</option>
+         <option value="AX">Islas Åland</option>
+         <option value="FO">Islas Feroe</option>
+         <option value="MP">Islas Marianas del Norte</option>
+         <option value="MH">Islas Marshall</option>
+         <option value="VI">Islas Vírgenes Americanas</option>
+         <option value="IT">Italia</option>
+         <option value="JP">Japón</option>
+         <option value="JE">Jersey</option>
+         <option value="LV">Letonia</option>
+         <option value="LI">Liechtenstein</option>
+         <option value="LT">Lituania</option>
+         <option value="LU">Luxemburgo</option>
+         <option value="MK">Macedonia del Norte</option>
+         <option value="MY">Malasia</option>
+         <option value="MW">Malaui</option>
+         <option value="MT">Malta</option>
+         <option value="MQ">Martinica</option>
+         <option value="YT">Mayotte</option>
+         <option value="MX">México</option>
+         <option value="MD">Moldavia</option>
+         <option value="NO">Noruega</option>
+         <option value="NC">Nueva Caledonia</option>
+         <option value="NZ">Nueva Zelanda</option>
+         <option value="NL">Países Bajos</option>
+         <option value="PK">Pakistán</option>
+         <option value="PW">Palaos</option>
+         <option value="PE">Perú</option>
+         <option value="PL">Polonia</option>
+         <option value="PT">Portugal</option>
+         <option value="MC">Principado de Mónaco</option>
+         <option value="PR">Puerto Rico</option>
+         <option value="GB">Reino Unido</option>
+         <option value="CZ">República Checa</option>
+         <option value="DO">República Dominicana</option>
+         <option value="RE">Reunión</option>
+         <option value="RO">Rumania</option>
+         <option value="RU">Rusia</option>
+         <option value="AS">Samoa Americana</option>
+         <option value="SM">San Marino</option>
+         <option value="PM">San Pedro y Miquelón</option>
+         <option value="RS">Serbia</option>
+         <option value="SG">Singapur</option>
+         <option value="LK">Sri Lanka</option>
+         <option value="ZA">Sudáfrica</option>
+         <option value="SE">Suecia</option>
+         <option value="CH">Suiza</option>
+         <option value="SJ">Svalbard y Jan Mayen</option>
+         <option value="TH">Tailandia</option>
+         <option value="TR">Turquía</option>
+         <option value="UA">Ucrania</option>
+         <option value="UY">Uruguay</option>
+         <option value="WF">Wallis y Futuna</option>
+      </select>
+
+      <label>Código Postal</label>
+      <input type="text" name="cp" id="cp" required="required">
+
+      <label>Colonia</label>
+      <select name="colonia" id="colonia">
+      </select>
+      <br>
+
+      <label>Estado</label>
+      <select name="estado" id="estado">
+      </select>
+
+      <label>Localidad</label>
+      <select name="localidad" id="localidad">
+      </select>
+
+      <label>Municipio</label>
+      <select name="municipio" id="municipio">
+      </select>
+
+      <label>Georeferencia</label>
+      <select name="georeferencia" id="georeferencia">
+      </select>
+
+      <br>
+   </form>
+
+   <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+   <script type="text/javascript">
+      $('#monito').hide();
+
+      //Código Postal
+      $('#cp').blur(function (e) {
+         //Código que se ejecutará cuando se quite el cursor del campo Código Postal y se de clic en otro lado
+         $.ajax({
+            type: "GET",
+            //URL para filtrar por código postal del país elegido
+            url: "https://data.opendatasoft.com/api/records/1.0/search/?dataset=geonames-postal-code%40public&q="
+            +$(this).val()
+            +"&facet=country_code&facet=admin_name1&facet=admin_code1&facet=admin_name2&refine.country_code="
+             + $(pais).val(),
+            dataType: "json",
+            beforeSend: function () {
+               $('#monito').show();
+            },
+            complete: function () {
+               $('#monito').hide();
+            },
+            success: function (data) {
+               $('#colonia').empty();
+               $.each(data.records, function (i, item) {
+                  console.log(item)
+                  $('#colonia').prepend('<option value="' + item.fields.place_name + '">' + item.fields.place_name + ", " + item.fields.admin_name2 + ", " + item.fields.admin_name1 + ", " + item.fields.country_code + '</option>');
+               });
+
+               //Pone vacíos los select de los demás campos
+               $('#estado').empty();
+
+               $('#localidad').empty();
+
+               $('#municipio').empty();
+
+               $('#georeferencia').empty();
+            }, //End of AJAX Success function  
+         });
+      })
+
+      //Colonia
+      $('#colonia').blur(function (e) {
+         //Código que se ejecutará cuando se quite el cursor del campo Colonia y se de clic en otro lado
+         $.ajax({
+            type: "GET",
+            //Nueva URL para filtrar por código postal del país elegido y la colonia elegida
+            url: "https://data.opendatasoft.com/api/records/1.0/search/?dataset=geonames-postal-code%40public&q="
+            +$(cp).val()+
+            "&facet=country_code&facet=admin_name1&facet=admin_code1&facet=admin_name2&facet=place_name&refine.country_code="
+            +$(pais).val()+
+            "&refine.place_name="+$(colonia).val(),
+            dataType: "json",
+            beforeSend: function () {
+               $('#monito').show();
+            },
+            complete: function () {
+               $('#monito').hide();
+            },
+            success: function (data) {
+               $('#estado').empty();
+               $.each(data.records, function (i, item) {
+                  console.log(item)
+                  //admin_name1 es el nombre del estado
+                  $('#estado').prepend('<option value="' + item.fields.admin_name1 + '">' + item.fields.admin_name1 + '</option>');
+               });
+
+               $('#localidad').empty();
+               $.each(data.records, function (i, item) {
+                  console.log(item)
+                  //admin_name2 es el nombre de la localidad
+                  $('#localidad').prepend('<option value="' + item.fields.admin_name2 + '">' + item.fields.admin_name2 + '</option>');
+               });
+
+               $('#municipio').empty();
+               $.each(data.records, function (i, item) {
+                  console.log(item)
+                  //admin_name2 es el nombre del municipio
+                  $('#municipio').prepend('<option value="' + item.fields.admin_name2 + '">' + item.fields.admin_name2 + '</option>');
+               });
+
+               $('#georeferencia').empty();
+               $.each(data.records, function (i, item) {
+                  console.log(item)
+                  //coordinates es el valor de las coordenadas de la georeferencia
+                  $('#georeferencia').prepend('<option value="' + item.fields.coordinates + '">' + item.fields.coordinates + '</option>');
+               });
+            }, //End of AJAX Success function  
+         });
+      })
+
+
+      $(".tagging").select2({
+         tags: true
+      });
+
+   </script>
+
+
+
+</body>
+
+</html>
