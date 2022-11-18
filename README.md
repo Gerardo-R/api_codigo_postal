@@ -11,3 +11,6 @@ Con esto la autorización termina.
 #Acceder a la API de Código Postal
 Ahora se da clic en el texto que dice "Continuar a Georeferencia", el cual redirige a la página con el formulario.
 Una vez dentro simplemente rellenar los campos uno por uno, al seleccionar y/o ingresar valores posicionar el cursor fuera del campo y dar clic para guardar los cambios y que los demás campos se actualicen automáticamente.
+
+
+*NOTA: Primero hay que descomprimir el archivo Oauth.rar en el directorio del proyecto para que funcione correctamente la aplicación.
